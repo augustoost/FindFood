@@ -1,19 +1,18 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @dish.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @dish.price %>
-</p>
-
-<p>
-  <strong>Time:</strong>
-  <%= @dish.time %>
-</p>
-
-<%= link_to 'Edit', edit_dish_path(@dish) %> |
-<%= link_to 'Back', dishes_path %>
+<div class="espacoLateral espacoTopo">
+  <div class="card border-dark mb-3" style="max-width: 18rem;">
+    <div class="card-header bg-transparent border-dark"><h2><%= @dish.description %></h2></div>
+    <div class="card-body text-dark">
+      <h5 class="card-title"><%= @dish.restaurant.name %></h5>
+      <p class="card-text">
+      <h6>Preço: R$ <%= @dish.price %></h6>
+      <small>Tempo de Produção: <%= @dish.time %></small>
+      <br>
+      <small>Ingredientes: <%= @dish.ingredients.map(&:description).join(', ') %></small>
+      </p>
+    </div>
+    <div class="card-footer bg-transparent border-dark align-self-center">
+      <%= link_to 'Edit', edit_dish_path(@dish), class: "btn btn-outline-success" %>
+      <%= link_to 'Back', dishes_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>

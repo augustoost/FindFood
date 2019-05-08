@@ -1,0 +1,26 @@
+<div class="container-fluid">
+
+  <% Restaurant.all.each do |restaurant| %>
+      <% restaurant.dishes.order('description').each do |dish| %>
+        <div class="panel-body float-left espacoLateral espacoTopo">
+          <div class="card tamanhoCard" style="width: 18rem;">
+            <div class="card-body">
+              <h3 class="card-title card-header"> <%= dish.description %> </h3>
+              <p class="card-text">
+              <h5>Preço: R$ <%= dish.price %></h5>
+              <p>Tempo de Produção: <%= dish.time %></p>
+              <p>Ingredientes: <%= dish.ingredients.map(&:description).join(', ') %></p>
+              </p>
+            </div>
+            <div class="card-footer">
+              <p>
+              <h4><%= restaurant.name %></h4>
+              Endereço: <%= restaurant.address %>
+              Telefone: <%= restaurant.phone %>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  <% end %>
+</div>

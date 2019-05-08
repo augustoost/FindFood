@@ -4,29 +4,48 @@
       <h2><%= pluralize(dish.errors.count, "error") %> prohibited this dish from being saved:</h2>
 
       <ul>
-      <% dish.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% dish.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
+  <div class="espacoLateral tamanhoForm">
+    <div class="field form-group">
+      <label>Restaurant</label>
+      <%= form.select :restaurant_id, Restaurant.all.collect {|restaurant| [restaurant.name, restaurant.id]}, :class => "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
+    <div class="field form-group">
+      <label>Description</label>
+      <%= form.text_field :description, id: :dish_description, :class => "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :time %>
-    <%= form.text_field :time %>
-  </div>
+    <div class="field form-group">
+      <label>Price</label>
+      <%= form.text_field :price, id: :dish_price, :class => "form-control" %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <div class="field form-group">
+      <label>Preparation time</label>
+      <%= form.text_field :time, id: :dish_time, :class => "form-control" %>
+    </div>
+
+    <div class="field">
+      <label>Ingredient</label><br>
+      <%= form.collection_check_boxes(:ingredient_ids, Ingredient.all, :id, :description, checked: dish.ingredients.map(&:id)) do |i| %>
+        <%= i.check_box %> <%= i.label %>
+      <% end %>
+    </div>
+
+    <div class="field form-group">
+      <label>Category</label>
+      <%= form.select :category_id, Category.all.collect {|category| [category.description , category.id]}, :class => "form-control" %>
+    </div>
+
+    <div class="actions tamanhBotao">
+      <%= form.submit :class =>"btn btn-outline-success" %>
+    </div>
   </div>
 <% end %>
