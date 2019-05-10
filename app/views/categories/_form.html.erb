@@ -11,12 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="espacoLateral tamanhoForm">
+    <div class="field form-group">
+      <label>Description</label>
+      <%= form.text_field :description,:class => "form-control"  %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit :class=>"btn btn-outline-success" %>
+    </div>
   </div>
 <% end %>

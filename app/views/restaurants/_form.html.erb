@@ -4,29 +4,33 @@
       <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
 
       <ul>
-      <% restaurant.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% restaurant.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+
+  <div class="espacoLateral tamanhoForm">
+    <div class="field form-group">
+      <label>Name</label>
+      <%= form.text_field :name,:class => "form-control"  %>
+    </div>
+
+    <div class="field form-group">
+      <label>Address</label>
+      <%= form.text_field :address,:class => "form-control"  %>
+    </div>
+
+    <div class="field form-group">
+      <label>Phone</label>
+      <%= form.text_field :phone,:class => "form-control"  %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit :class=>"btn btn-outline-success" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

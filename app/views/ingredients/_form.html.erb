@@ -4,19 +4,21 @@
       <h2><%= pluralize(ingredient.errors.count, "error") %> prohibited this ingredient from being saved:</h2>
 
       <ul>
-      <% ingredient.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% ingredient.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
+  <div class="espacoLateral tamanhoForm">
+    <div class="field form-group">
+      <label>Description</label>
+      <%= form.text_field :description,:class => "form-control"  %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <div class="actions">
+      <%= form.submit :class=>"btn btn-outline-success" %>
+    </div>
   </div>
 <% end %>

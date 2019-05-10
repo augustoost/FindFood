@@ -1,9 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @category.description %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<div class="espacoLateral espacoTopo">
+  <div class="card border-dark mb-3" style="max-width: 18rem;">
+    <div class="card-header bg-transparent border-dark"><h2>Category</h2></div>
+    <div class="card-body text-dark">
+      <p class="card-text justify-content-center">
+        <%= @category.description %>
+      </p>
+    </div>
+    <div class="card-footer bg-transparent border-dark align-self-center">
+      <%= link_to 'Edit', edit_category_path(@category), class: "btn btn-outline-success" %>
+      <%= link_to 'Back', categories_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>

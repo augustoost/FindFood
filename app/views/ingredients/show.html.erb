@@ -1,9 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @ingredient.description %>
-</p>
 
-<%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
-<%= link_to 'Back', ingredients_path %>
+<div class="espacoLateral espacoTopo">
+  <div class="card border-dark mb-3" style="max-width: 18rem;">
+    <div class="card-header bg-transparent border-dark"><h2>Ingredient</h2></div>
+    <div class="card-body text-dark">
+      <p class="card-text justify-content-center">
+        <%= @ingredient.description %>
+      </p>
+    </div>
+    <div class="card-footer bg-transparent border-dark align-self-center">
+      <%= link_to 'Edit', edit_ingredient_path(@ingredient), class: "btn btn-outline-success" %>
+      <%= link_to 'Back', ingredients_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>
