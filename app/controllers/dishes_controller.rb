@@ -12,9 +12,7 @@ class DishesController < ApplicationController
   def show
   end
 
-  def homepage
-    @dishes = Dish.all.order("description")
-  end
+
   # GET /dishes/new
   def new
     @dish = Dish.new
@@ -72,6 +70,6 @@ class DishesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dish_params
-      params.require(:dish).permit(:description, :price, :time, :restaurant_id, :category_id)
+      params.require(:dish).permit(:description, :price, :time, :restaurant_id, :category_id, {ingredient_ids:[]})
     end
 end

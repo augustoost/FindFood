@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <ul>
+    <% @restaurant.each do |restaurant| %>
+      <li><%= restaurant.name %></li>
+    <% end %>
+  </ul>
+
+
+
+
+
+  <div class="col-xs-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">Categorias</div>
+      <div class="panel-body">
+        <ul>
+          <% Category.all.each do |category| %>
+            <li>
+              <%= link_to category.description, homepage_restaurants_path(category_id: category.id) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Pesquisar</div>
+      <div class="panel-body">
+        <%= form_tag homepage_restaurants_path, :method => 'post' do %>
+          <p>
+            <%= text_field_tag( :search_term) %>
+            <%= submit_tag "Buscar"%>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
