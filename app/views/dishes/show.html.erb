@@ -8,6 +8,8 @@
       <small>Tempo de Produção: <%= @dish.time %></small>
       <br>
       <small>Ingredientes: <%= @dish.ingredients.map(&:description).join(', ') %></small>
+      <br>
+      <small>Categoria: <%=@dish.category.description%></small>
       </p>
     </div>
     <div class="card-footer bg-transparent border-dark align-self-center">

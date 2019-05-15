@@ -18,6 +18,78 @@
 //= require_tree .
 //= require_self
 
+//begin categories style
+.categories {
+  width: 25%;
+  float: left;
+  padding: 15px;
+}
+
+.categories ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.categories li {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #33b5e5;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.categories li:hover {
+  background-color: #0099cc;
+}
+
+//begin search style
+
+.search{
+  width: 50%;
+  float: left;
+  margin: 0 auto;
+  padding-top: 17%;
+
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+//begin restaurants style
+.restaurants {
+  width: 25%;
+  float: left;
+  padding: 15px;
+
+}
+
+.list{
+  overflow-y:scroll;
+  height: 40em;
+}
+
+.restaurants ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.restaurants li {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #33b5e5;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.restaurants li:hover {
+  background-color: #0099cc;
+}
+
 .espacoLateral {
   padding-left: 15px;
 }
@@ -39,4 +111,8 @@
 
 .tamanhoCard{
   height: 12em;
+}
+
+.paddingLateral{
+  padding-left: 12px;
 }

@@ -14,8 +14,12 @@ class RestaurantsController < ApplicationController
 
   def homepage
     @restaurant = Restaurant.all.order("name")
+
+    @restaurant = @restaurant.joins("INNER JOIN dishes ON dishes.restaurant_id = restaurants.id INNER JOIN categories ON categories.id = dishes.category_id  and UPPER(categories.description) like", "'%#{params[:search_term1].to_s.upcase}%'") unless params[:search_term1].blank?
+
+    @restaurant = @restaurant.joins("INNER JOIN dishes ON dishes.restaurant_id = restaurants.id AND UPPER(dishes.description) like ", "'%#{params[:search_term2].to_s.upcase}%'") unless params[:search_term2].blank?
+
     @restaurant = @restaurant.joins("INNER JOIN dishes ON dishes.restaurant_id = restaurants.id AND dishes.category_id = ", params[:category_id]).distinct unless params[:category_id].blank?
-    @restaurant = @restaurant.joins("INNER JOIN dishes ON dishes.restaurant_id = restaurants.id AND UPPER(dishes.description) like ", "'%#{params[:search_term].to_s.upcase}%'").distinct unless params[:search_term].blank?
 
   end
 
