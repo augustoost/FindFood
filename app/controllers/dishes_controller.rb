@@ -12,7 +12,6 @@ class DishesController < ApplicationController
   def show
   end
 
-
   # GET /dishes/new
   def new
     @dish = Dish.new

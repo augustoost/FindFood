@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     collection do
       get 'homepage'
       post 'homepage'
+      get 'restaurant_info'
     end
   end
   resources :dishes

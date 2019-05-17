@@ -1,50 +1,50 @@
-
-
-
-<div class="categories">
-  <h2><%=link_to 'Categories', root_path, class: "link-titulo"  %></h2>
-
-  <div class="list">
-    <ul>
-      <% Category.all.order("description").each do |category| %>
-        <li>
-          <%= link_to category.description, homepage_restaurants_path(category_id: category.id) %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
-
-<div class="search">
-  <div class="content">
-    <%= form_tag homepage_restaurants_path, :placeholder =>"Category", :method => 'post', :class => "nav-item align-middle" do %>
-      <p>
-        <label>Search Categories</label><br>
-        <%= text_field_tag( :search_term1) %>
-        <%= submit_tag "Seach", :class => "btn btn-outline-success align-middle"%>
-      </p>
-    <% end %>
-
-    <%= form_tag homepage_restaurants_path, :method => 'post', :class => "nav-item align-middle" do %>
-      <p>
-        <label>Search Dishes</label><br>
-        <%= text_field_tag( :search_term2)%>
-        <%= submit_tag "Seach", :class => "btn btn-outline-success align-middle"%>
-      </p>
-    <% end %>
-  </div>
-</div>
-
-<div class="restaurants" >
-
-  <h2><%=link_to 'Restaurants', root_path  %></h2>
-
-  <div class="list" >
+<div class="pgMain">
+  <div class="categories">
+    <div class="header">
+      <h2><%=link_to 'Categories', root_path, class: "link-titulo", :class => "link-header"  %></h2>
+    </div>
+    <div class="list">
       <ul>
-        <% @restaurant.order("name").each do |restaurant| %>
-          <li><%= restaurant.name %></li>
+        <% Category.all.order("description").each do |category| %>
+          <li>
+            <%= link_to category.description, homepage_restaurants_path(category_id: category.id), :class =>  "link" %>
+          </li>
         <% end %>
       </ul>
+    </div>
+  </div>
+
+  <div class="search">
+    <div class="content">
+      <%= form_tag homepage_restaurants_path, :placeholder =>"Category", :method => 'post', :class => "nav-item align-middle" do %>
+        <p>
+          <label>Search Categories</label><br>
+          <%= text_field_tag( :search_term1) %>
+          <%= submit_tag "Seach", :class => "btn btn-outline-primary align-middle"%>
+        </p>
+      <% end %>
+
+      <%= form_tag homepage_restaurants_path, :method => 'post', :class => "nav-item align-middle" do %>
+        <p>
+          <label>Search Dishes</label><br>
+          <%= text_field_tag( :search_term2)%>
+          <%= submit_tag "Seach", :class => "btn btn-outline-primary align-middle"%>
+        </p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="restaurants" >
+
+    <h2><%=link_to 'Restaurants', root_path, :class => "link-header"  %></h2>
+
+    <div class="list" >
+        <ul>
+          <% @restaurant.order("name").each do |restaurant| %>
+            <li><%= link_to restaurant.name, restaurant_info_restaurants_path(restaurant_id: restaurant.id), :class =>  "link" %></li>
+          <% end %>
+        </ul>
+    </div>
   </div>
 </div>
 

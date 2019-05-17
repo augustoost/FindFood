@@ -12,6 +12,10 @@ class RestaurantsController < ApplicationController
   def show
   end
 
+  def search_dish(term)
+    $dish = term
+  end
+
   def homepage
     @restaurant = Restaurant.all.order("name")
 
@@ -21,6 +25,16 @@ class RestaurantsController < ApplicationController
 
     @restaurant = @restaurant.joins("INNER JOIN dishes ON dishes.restaurant_id = restaurants.id AND dishes.category_id = ", params[:category_id]).distinct unless params[:category_id].blank?
 
+    search_dish(params[:search_term2].to_s)
+  end
+
+  # GET /restaurants/1
+  # GET /restaurants/1.json
+  def restaurant_info
+    @restaurant = Restaurant.find(params[:restaurant_id])
+
+    @dishes = Dish.where("restaurant_id = ?", params[:restaurant_id])
+    @search = $dish
   end
 
   # GET /restaurants/new

@@ -18,6 +18,28 @@
 //= require_tree .
 //= require_self
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+.box-content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.box {
+  height: 7%;
+  width: 20%;
+  margin: 8px;
+}
+
+
+
+
 //begin categories style
 .categories {
   width: 25%;
@@ -25,17 +47,41 @@
   padding: 15px;
 }
 
+.categories h2{
+  text-align: center;
+}
 .categories ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
+.link{
+  color: white;
+}
+
+.link-header{
+  color: black !important;
+  text-decoration: none;
+}
+.header a:hover{
+  color: black;
+}
+
+.categories a:visited{
+  text-decoration: none;
+}
+
+.categories a:hover{
+  text-decoration: none;
+  color: white;
+}
+
 .categories li {
   padding: 8px;
   margin-bottom: 7px;
-  background-color: #33b5e5;
-  color: #ffffff;
+  background-color:#33b5e5;
+  color: #BBBBBB;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
@@ -67,9 +113,21 @@
 
 }
 
+.restaurants h2{
+  text-align: center;
+}
 .list{
   overflow-y:scroll;
   height: 40em;
+}
+
+.restaurants a:visited{
+  text-decoration: none;
+}
+
+.restaurants a:hover{
+  text-decoration: none;
+  color: white;
 }
 
 .restaurants ul {
@@ -82,7 +140,7 @@
   padding: 8px;
   margin-bottom: 7px;
   background-color: #33b5e5;
-  color: #ffffff;
+  color: #BBBBBB;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
